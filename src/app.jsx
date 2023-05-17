@@ -6,10 +6,18 @@ import {
 } from "react-router-dom";
 import Home from "./pages/home";
 import { information } from "./pages/loaders";
+import Profile from "./pages/profile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Home />} loader={information} />
+    <Route path="/">
+      <Route path="/" element={<Home />} loader={information} />
+      <Route
+        path="/userProfile/:id"
+        element={<Profile />}
+        loader={information}
+      />
+    </Route>
   )
 );
 
