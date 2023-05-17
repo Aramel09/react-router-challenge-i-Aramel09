@@ -1,13 +1,11 @@
 import { defer } from "react-router-dom";
-// import apiServices from "../services/api";
 import apiService from "../api.service";
 
-export const information = () => {
-  //   const users = apiServices.retrieveInfo();
+export const information = ({ params }) => {
+  const { id } = params;
 
-  //   return defer({ users });
+  console.log(id);
 
-  const users = apiService.index();
-  console.log({ users });
+  const users = id ? apiService.show(id) : apiService.index();
   return defer({ users });
 };
