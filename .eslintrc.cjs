@@ -9,6 +9,7 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin: cypress/recommended",
     "standard",
     "prettier",
   ],
@@ -18,6 +19,13 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "use-encapsulation", "testing-library", "jest-dom"],
+  plugins: [
+    "react",
+    "use-encapsulation",
+    "testing-library",
+    "jest-dom",
+    "cypress",
+  ],
   rules: { "use-encapsulation/prefer-custom-hooks": 1 },
   settings: {
     react: {
