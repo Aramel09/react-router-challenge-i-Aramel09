@@ -27,3 +27,6 @@ dist-ssr
 *lock.*
 
 db.json
+
+cypress/videos
+cypress/screenshots
