@@ -18,7 +18,6 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "use-encapsulation", "testing-library", "jest-dom"],
   plugins: [
     "react",
     "use-encapsulation",
