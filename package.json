@@ -6,6 +6,7 @@
   "scripts": {
     "build": "vite build",
     "cypress:open": "cypress open",
+    "cypress:run": "cypess run",
     "json-server": "json-server --watch db.json -d 1000 --port 3001",
     "preview": "vite preview",
     "start": "vite",
