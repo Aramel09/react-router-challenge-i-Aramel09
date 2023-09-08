@@ -5,12 +5,13 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Home from "./pages/home";
+import Layout from "./pages/layout";
 import { information } from "./pages/loaders";
 import Profile from "./pages/profile";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/">
+    <Route path="/" element={<Layout />}>
       <Route path="/" element={<Home />} loader={information} />
       <Route
         path="/userProfile/:id"
@@ -24,7 +25,6 @@ const router = createBrowserRouter(
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">React-router Users</h1>
       <RouterProvider router={router} />
     </>
   );
