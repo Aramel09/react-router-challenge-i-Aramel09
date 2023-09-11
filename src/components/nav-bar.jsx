@@ -8,10 +8,9 @@ export default function NavBar() {
           <Link to={"/"}>
             <h1 className="py-4 text-2xl font-bold">Contacts</h1>
           </Link>
-          <Link to={"/"}>To the list</Link>
-          <li>
+          <Link to={"/Add-Contact"}>
             <h1>Add contact</h1>
-          </li>
+          </Link>
         </ul>
       </nav>
     </>
