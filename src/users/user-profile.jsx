@@ -1,4 +1,4 @@
-import { useAsyncValue } from "react-router-dom";
+import { Form, Link, useAsyncValue } from "react-router-dom";
 
 export default function UserProfile() {
   const users = useAsyncValue();
@@ -14,6 +14,13 @@ export default function UserProfile() {
           <span>{users.tel}</span>
         </small>
       </li>
+      <Form>
+        <Link to={"/"}>
+          <button className="btn">Back</button>
+        </Link>
+        <button className="btn">Edit</button>
+        <button className="btn">Delete</button>
+      </Form>
     </>
   );
 }
