@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+import { mutateUserProfile } from "./pages/actions";
 import AddContact from "./pages/add-contact";
 import Home from "./pages/home";
 import Layout from "./pages/layout";
@@ -19,7 +20,11 @@ const router = createBrowserRouter(
         element={<Profile />}
         loader={information}
       />
-      <Route path="/Add-Contact" element={<AddContact />} />
+      <Route
+        path="/Add-Contact"
+        element={<AddContact />}
+        action={mutateUserProfile}
+      />
     </Route>
   )
 );
