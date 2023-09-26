@@ -1,7 +1,9 @@
-import { Form, Link, useAsyncValue } from "react-router-dom";
+import { Link, useAsyncValue } from "react-router-dom";
 
 export default function UserProfile() {
   const users = useAsyncValue();
+  console.log(users);
+  const prueba = users;
 
   return (
     <>
@@ -14,13 +16,12 @@ export default function UserProfile() {
           <span>{users.tel}</span>
         </small>
       </li>
-      <Form>
-        <Link to={"/"}>
-          <button className="btn">Back</button>
-        </Link>
-        <button className="btn">Edit</button>
-        <button className="btn">Delete</button>
-      </Form>
+      <Link to={"/"} className="btn">
+        Back
+      </Link>
+      <Link to={"/Add-Contact"} className="btn" state={{ users }}>
+        Edit
+      </Link>
     </>
   );
 }
