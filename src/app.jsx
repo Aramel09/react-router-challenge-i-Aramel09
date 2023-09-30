@@ -19,6 +19,7 @@ const router = createBrowserRouter(
         path="/userProfile/:id"
         element={<Profile />}
         loader={information}
+        action={mutateUserProfile}
       />
       <Route
         path="/Add-Contact"
