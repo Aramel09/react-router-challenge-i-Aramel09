@@ -1,14 +1,25 @@
+import { redirect } from "react-router-dom";
 import apiService from "../api.service";
 
 export const mutateUserProfile = async ({ request }) => {
   const fd = await request.formData();
-  const fdJustTryingSomething = Object.fromEntries(fd);
+  const profileSubmitted = Object.fromEntries(fd);
 
   console.log(request);
-  console.log(fdJustTryingSomething, "boton presionado");
+  console.log(profileSubmitted, "boton presionado");
   console.log(fd);
 
-  apiService.create(fdJustTryingSomething);
+  switch (request.method) {
+    case "POST":
+      apiService.create(profileSubmitted);
+      return redirect("/");
+    case "PATCH":
+      apiService.update(profileSubmitted.id, profileSubmitted);
+      return redirect("/");
+    case "DELETE":
+      apiService.delete(profileSubmitted.id);
+      return redirect("/");
+  }
 
   return null;
 };
