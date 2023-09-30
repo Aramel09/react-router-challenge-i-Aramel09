@@ -1,9 +1,10 @@
-import { Link, useAsyncValue } from "react-router-dom";
+import { Link, useAsyncValue, useSubmit } from "react-router-dom";
 
 export default function UserProfile() {
   const users = useAsyncValue();
   console.log(users);
-  const prueba = users;
+
+  const submit = useSubmit();
 
   return (
     <>
@@ -22,6 +23,21 @@ export default function UserProfile() {
       <Link to={"/Add-Contact"} className="btn" state={{ users }}>
         Edit
       </Link>
+      <button
+        className="btn"
+        onClick={() => {
+          submit(
+            {
+              id: users.id,
+            },
+            {
+              method: "DELETE",
+            }
+          );
+        }}
+      >
+        Delete
+      </button>
     </>
   );
 }
