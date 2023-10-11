@@ -1,16 +1,30 @@
+import { useState } from "react";
 import { Link, useAsyncValue } from "react-router-dom";
 import { groupContactsByLetterUsingLastNames } from "../utils";
 
 export default function List() {
   const list = useAsyncValue();
-  const listInAlfabeticalOrder = groupContactsByLetterUsingLastNames(list);
+  const [informationAfterSearch, setInformationAfterSearch] = useState("");
+
+  const listInAlfabeticalOrder = groupContactsByLetterUsingLastNames(
+    list.filter((names) => {
+      return names.name.toLowerCase().includes(informationAfterSearch);
+    })
+  );
 
   const letters = Object.keys(listInAlfabeticalOrder);
-
   const nameOfProfiles = Object.values(listInAlfabeticalOrder);
 
   return (
     <>
+      <input
+        type="text"
+        placeholder="Search"
+        className="text-black"
+        onChange={(event) => {
+          setInformationAfterSearch(event.target.value);
+        }}
+      ></input>
       {letters.map((letter, index) => {
         return (
           <>
