@@ -20,7 +20,7 @@ export default function List() {
       <input
         type="text"
         placeholder="Search"
-        className="text-black"
+        className="mb-3 ml-20 mt-3 w-80 text-black"
         onChange={(event) => {
           setInformationAfterSearch(event.target.value);
         }}
@@ -28,8 +28,10 @@ export default function List() {
       {letters.map((letter, index) => {
         return (
           <>
-            <h1 key={index}>{letter} </h1>
-            <ol>
+            <h1 key={index} className="my-3 ml-20">
+              {letter}{" "}
+            </h1>
+            <ol className="ml-20">
               {nameOfProfiles[index].map((users) => {
                 return (
                   <li key={users.id}>
