@@ -20,7 +20,7 @@ export default function List() {
       <input
         type="text"
         placeholder="Search"
-        className="mb-3 ml-20 mt-3 w-80 text-black"
+        className="mb-3 ml-20 mt-7 w-80 text-black"
         onChange={(event) => {
           setInformationAfterSearch(event.target.value);
         }}

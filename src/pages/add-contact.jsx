@@ -6,22 +6,28 @@ export default function AddContact() {
 
   return (
     <>
-      <Form method={state ? "PATCH" : "POST"}>
-        <div className="flex w-2/5 flex-col space-y-5">
+      <Form
+        className="flex flex-col items-center"
+        method={state ? "PATCH" : "POST"}
+      >
+        <div className="mt-5 flex flex-col items-center space-y-5">
           <input
-            className="text-black"
+            className=" w-60 rounded-xl p-2 text-black"
+            placeholder="Name"
             id="name"
             name="name"
             defaultValue={state ? state.users.name : ""}
           />
           <input
-            className="text-black"
+            className="w-60 rounded-xl p-2 text-black"
+            placeholder="Email"
             id="email"
             name="email"
             defaultValue={state ? state.users.email : ""}
           />
           <input
-            className="text-black"
+            className="w-60 rounded-xl p-2 text-black"
+            placeholder="Tel."
             id="tel"
             name="tel"
             defaultValue={state ? state.users.tel : ""}
