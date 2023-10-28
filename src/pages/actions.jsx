@@ -11,13 +11,13 @@ export const mutateUserProfile = async ({ request }) => {
 
   switch (request.method) {
     case "POST":
-      apiService.create(profileSubmitted);
+      await apiService.create(profileSubmitted);
       return redirect("/");
     case "PATCH":
-      apiService.update(profileSubmitted.id, profileSubmitted);
+      await apiService.update(profileSubmitted.id, profileSubmitted);
       return redirect("/");
     case "DELETE":
-      apiService.delete(profileSubmitted.id);
+      await apiService.delete(profileSubmitted.id);
       return redirect("/");
   }
 
