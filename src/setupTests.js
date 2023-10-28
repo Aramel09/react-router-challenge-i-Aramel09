@@ -6,9 +6,21 @@
  * Just import it here as part of test setup.
  */
 import "@testing-library/jest-dom";
-import { cleanup } from "@testing-library/react";
-import { afterEach } from "vitest";
+import { cleanup, render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 afterEach(() => {
   cleanup();
 });
+
+export function setup(jsx) {
+  return {
+    user: userEvent.setup(
+      // Make sure that this doesn't break any other tests in the suite.
+      { delay: null },
+    ),
+
+    // Think of this like a 'mix-in' of the entries from the returned object.
+    ...render(jsx),
+  };
+}
